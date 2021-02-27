@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  extends: ['prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -11,38 +12,36 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    project: './tsconfig.eslint.json',
-  },
-  plugins: ['@typescript-eslint'],
-  extends: [
-    'airbnb-typescript',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
-  ],
-  rules: {
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'react/require-default-props': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        'newlines-between': 'always',
+  rules: {},
+  overrides: [
+    {
+      files: ['**/*.ts?(x)'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 12,
+        sourceType: 'module',
+        project: './tsconfig.json',
       },
-    ],
-    'jsx-a11y/anchor-is-valid': 'off',
-    'jsx-a11y/anchor-has-content': 'off',
-  },
+      extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier'],
+      plugins: ['react', '@typescript-eslint'],
+      rules: {
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/prop-types': 'off',
+        'react/require-default-props': 'off',
+        // allow twin.macro as devDependency
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'import/order': [
+          'error',
+          {
+            groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+            'newlines-between': 'always',
+          },
+        ],
+      },
+    },
+  ],
 };
