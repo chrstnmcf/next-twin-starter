@@ -26,7 +26,7 @@ module.exports = {
         sourceType: 'module',
         project: './tsconfig.json',
       },
-      extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier'],
+      extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier', 'next'],
       plugins: ['react', '@typescript-eslint'],
       rules: {
         'react/jsx-uses-react': 'off',
@@ -42,6 +42,7 @@ module.exports = {
             'newlines-between': 'always',
           },
         ],
+        '@next/next/link-passhref': 'off',
       },
     },
   ],

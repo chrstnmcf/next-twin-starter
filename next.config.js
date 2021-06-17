@@ -1,10 +1,8 @@
-/* eslint-disable no-param-reassign */
 module.exports = {
-  webpack: (config, { isServer }) => {
-    // Fixes packages that depend on fs/module module
-    if (!isServer) {
-      config.node = { fs: 'empty', module: 'empty' };
-    }
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  webpack: (config) => {
+    // Unset client-side javascript that only works server-side
+    config.resolve.fallback = { fs: false, module: false };
 
     return config;
   },

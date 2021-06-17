@@ -1,5 +1,8 @@
 import tw, { styled } from 'twin.macro';
 import Head from 'next/head';
+import Image from 'next/image';
+
+import vercelLogo from '../../public/vercel.svg';
 
 const Grid = tw.div`
   flex justify-center items-center flex-col mt-12 w-full max-w-screen-md
@@ -69,7 +72,7 @@ export default function Home() {
           rel="noopener noreferrer"
           tw="flex justify-center items-center hover:no-underline"
         >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" tw="ml-2 h-4" />
+          Powered by <Image src={vercelLogo} alt="Vercel Logo" height={16} tw="ml-2 h-4" />
         </a>
       </footer>
     </div>
