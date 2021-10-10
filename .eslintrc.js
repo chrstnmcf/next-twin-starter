@@ -5,7 +5,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['plugin:react/recommended', 'airbnb', 'next', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -26,11 +26,16 @@ module.exports = {
         sourceType: 'module',
         project: './tsconfig.json',
       },
-      extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier', 'next'],
+      extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'airbnb-typescript',
+        'prettier',
+        'next',
+        'plugin:react/jsx-runtime',
+      ],
       plugins: ['react', '@typescript-eslint'],
       rules: {
-        'react/jsx-uses-react': 'off',
-        'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off',
         'react/require-default-props': 'off',
         // allow twin.macro as devDependency
@@ -39,10 +44,15 @@ module.exports = {
           'error',
           {
             groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+            pathGroups: [
+              {
+                pattern: '@/**',
+                group: 'internal',
+              },
+            ],
             'newlines-between': 'always',
           },
         ],
-        '@next/next/link-passhref': 'off',
       },
     },
   ],

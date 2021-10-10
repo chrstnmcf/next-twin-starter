@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 module.exports = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   webpack: (config) => {
