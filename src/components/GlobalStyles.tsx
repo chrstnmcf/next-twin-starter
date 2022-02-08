@@ -1,7 +1,10 @@
-import tw, { GlobalStyles } from 'twin.macro';
+import tw, { GlobalStyles as BaseStyles } from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
 
-const BaseStyle = createGlobalStyle`
+const CustomStyles = createGlobalStyle`
+  body {
+    ${tw`antialiased`}
+  }
   a {
     ${tw`text-blue-400 hover:underline`}
   }
@@ -10,8 +13,8 @@ const BaseStyle = createGlobalStyle`
 export default function GlobalStylesComponent() {
   return (
     <>
-      <BaseStyle />
-      <GlobalStyles />
+      <CustomStyles />
+      <BaseStyles />
     </>
   );
 }
