@@ -1,3 +1,7 @@
+**[DEPRECATED]**
+
+🚨 _This project is no longer actively maintained, and the code may be outdated. Use it at your own risk, as there might be compatibility issues with newer dependencies and frameworks._
+
 # Next.js, Tailwind CSS, twin.macro, styled-components starter kit 🚀
 
 A [Next.js](https://nextjs.org/) starter kit with TailwindCSS, twin.macro, styled-components, Prettier, ESLint in
